@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tienda-d968c"
+  },
+  "targets": {
+    "tienda-d968c": {
+      "hosting": {
+        "tienda": [
+          "tienda-d968c"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div>
+  <app-filtros (filtrarProductos)="filtrarProductos($event)"></app-filtros>
+</div>
+<div class="div">
+  <div *ngFor="let i of productosMostrar">
+    <mat-card class="example-card mat-card">
+      <mat-card-header>
+        <mat-card-title
+          ><h1>{{ i.nombre }}</h1></mat-card-title
+        >
+      </mat-card-header>
+
+      <!-- <img (click)='navegar(i.url)' *ngIf="auxTipo==='todos'" mat-card-image src="/assets/img/{{i.img[0]}}" style="cursor: pointer" alt="{{i.nombre}}"> -->
+      <img
+        (click)="navegar(i.url)"
+        mat-card-image
+        src="/assets/img/{{ i | mostrarColorSeleccionadoPipe : auxTipo }}"
+        style="cursor: pointer"
+        alt="{{ i.nombre }}"
+      />
+      <!-- <mat-card-content>
+              <p>
+                {{i.descripcion}}
+              </p>
+            </mat-card-content> -->
+      <div class="meGusta">
+        <button
+          (click)="changeColor(i)"
+          [ngStyle]="{ color: i.fav ? 'red' : 'white' }"
+          mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+
+      <!-- <button *ngIf=" elementosFavoritos | comprobarSeleccionadoPipe : i.url : false " (click)="selectFavorite( i )" mat-icon-button>
+              <span class="material-icons">favorite_border</span>
+            </button>
+
+            <button *ngIf=" elementosFavoritos | comprobarSeleccionadoPipe : i.url : true " (click)="deselectFavorite( i )" mat-icon-button>
+              <mat-icon class="pink">favorite</mat-icon>
+            </button> -->
+
+      <div class="precios">
+        <mat-card-actions>
+          <button mat-button class="tachar">{{ i.precio }}€</button>
+          <button mat-button class="precioOferta">{{ i.precioOferta }}€</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>

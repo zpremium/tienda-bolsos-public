@@ -1,0 +1,42 @@
+<div class="header">
+  <div class="bar">
+    <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  </div>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+  <div class="titulo">
+    <span style="cursor: pointer" (click)="volver()">Zeta's Shop</span>
+  </div>
+
+  <span class="example-spacer"></span>
+  <div class='meGusta'>
+    <button  (click)="changeColor()" [ngStyle]="{'color' : color ? 'black' : 'white' }" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon >favorite</mat-icon>
+    </button>
+  </div>
+  <div class='share'>
+    <button   mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </div>
+  <div class="cantidad">
+    <app-importe-pagar></app-importe-pagar>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
